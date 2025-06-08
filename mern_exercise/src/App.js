@@ -12,6 +12,8 @@ import ExercisePage from './componants/ExercisePage';
 
 import Header from './componants/header';
 
+
+
 function App() {
   return (
     <Router>
@@ -28,11 +30,18 @@ function App() {
         </div>
       </div>
     </Router>
+    
   );
 }
 
 function HomePage() {
-  return <h1>Hello World</h1>;
+  return (
+    <div>
+      <h1>Diet Starts Tomorrow</h1>
+      <h4>For true bigbacks</h4>
+      <h6>'im too big'</h6>
+    </div>
+  );
 }
 
 export default App;
