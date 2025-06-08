@@ -10,7 +10,7 @@ import NewExercisePage from './componants/NewExercisePage';
 import ExercisePage from './componants/ExercisePage';
 
 
-import Header from './componants/header'; // Capitalized component name
+import Header from './componants/header';
 
 function App() {
   return (

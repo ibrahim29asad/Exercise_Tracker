@@ -117,10 +117,10 @@ function ExercisePage() {
       </table>
 
       {showModal && (
-        <div className="modal-overlay">
-          <div className="modal-content">
+        <div className="modal-overlay" color='black'>
+          <div className="modal-content" color='black'>
             <h2>Edit Exercise</h2>
-            <label>Username:</label>
+            Username:
             <input
               type="text"
               name="username"

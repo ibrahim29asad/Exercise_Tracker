@@ -44,32 +44,35 @@ body{
 }
 
 .UserTable{
+  
   margin-top: 1rem;
+
+  width: 80%;
   border: 1px solid;
   border-color: rgb(255, 255, 255);
   font-size: small;
-  min-width: 6rem;
-  width: auto;
-  border-collapse: collapse;
+  
+  border-collapse: collapse; 
 }
 
 
 .UserTable th{
-  margin-top: 1rem;
+  
+  margin: 1rem auto;
   border: 1px solid;
   border-color: rgb(255, 255, 255);
   font-size: small;
-  min-width: 6rem;
-  width: auto;
+  /* min-width: 6rem;
+  width: auto; */
 }
 
 .UserTable td{
-  margin-top: 1rem;
+  margin: 1rem auto;
   border: 1px solid;
   border-color: rgb(255, 255, 255);
   font-size: small;
-  min-width: 6rem;
-  width: auto;
+  /* min-width: 6rem;
+  width: auto; */
 }
 
 .modal-overlay {
@@ -93,27 +96,5 @@ body{
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-.UpdateBtn {
-  background-color: #007BFF;
-  color: white;
-  padding: 0.3rem 1rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
 
-.UpdateBtn:hover {
-  background-color: #0056b3;
-}
 
-.UserTable {
-  width: 100%;
-  margin-top: 20px;
-  border-collapse: collapse;
-}
-
-.UserTable th, .UserTable td {
-  border: 1px solid #ccc;
-  padding: 8px;
-  text-align: left;
-}
