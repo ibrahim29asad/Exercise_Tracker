@@ -1,38 +1,119 @@
+body{
+  background-color: black;
+}
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.MainBody {
+  color: white;
+  font-size: 2rem;  
+  padding-left: 2rem;
+  padding-top: 2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.SubmitBox{
+  padding-top: 1rem;
+  font-size: 1rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.search-input{
+  width: 30rem;
+  /* outline: none; */
+  height: 1.5rem;
+  font-size: 1rem;
+  color: black;
+  
+}
+
+.search-input::placeholder {
+  color: rgba(143, 135, 135, 0.5); /* or any color with opacity */
+}
+
+.Submit{
+  color:black;
+  background-color: grey;
+  border-radius: 5px;
+  border: 1px solid;
+}
+
+.Submit:hover{
+  transition: 0.3s;
+  color:black;
+  background-color: rgb(19, 235, 80);
+}
+
+.UserTable{
+  margin-top: 1rem;
+  border: 1px solid;
+  border-color: rgb(255, 255, 255);
+  font-size: small;
+  min-width: 6rem;
+  width: auto;
+  border-collapse: collapse;
+}
+
+
+.UserTable th{
+  margin-top: 1rem;
+  border: 1px solid;
+  border-color: rgb(255, 255, 255);
+  font-size: small;
+  min-width: 6rem;
+  width: auto;
+}
+
+.UserTable td{
+  margin-top: 1rem;
+  border: 1px solid;
+  border-color: rgb(255, 255, 255);
+  font-size: small;
+  min-width: 6rem;
+  width: auto;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  z-index: 999;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 400px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.UpdateBtn {
+  background-color: #007BFF;
   color: white;
+  padding: 0.3rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.UpdateBtn:hover {
+  background-color: #0056b3;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.UserTable {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.UserTable th, .UserTable td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
 }
