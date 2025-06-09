@@ -8,6 +8,16 @@ require('dotenv').config();
 
 const uri = process.env.ATLAS_URI;
 
+const requiredEnvVars = ['ATLAS_URI', 'OG_ATLAS_URI', 'MONGODBVSCODE'];
+
+const missingVars = requiredEnvVars.filter(varName => !process.env[varName]);
+
+if (missingVars.length > 0) {
+  throw new Error(`Missing required environment variables: ${missingVars.join(', ')}`);
+}
+
+if(!process.env.ATLAS_URI) throw new Error("YA Doinked");
+
 const app = express();
 const port = process.env.PORT || 5001;
 
