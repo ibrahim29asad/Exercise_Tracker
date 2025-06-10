@@ -120,7 +120,7 @@ function ExercisePage() {
         <div className="modal-overlay" color='black'>
           <div className="modal-content" color='black'>
             <h2>Edit Exercise</h2>
-            Username:
+            <label color='black'>Username:</label>
             <input
               type="text"
               name="username"

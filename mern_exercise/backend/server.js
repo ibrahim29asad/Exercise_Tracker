@@ -19,7 +19,7 @@ if (missingVars.length > 0) {
 if(!process.env.ATLAS_URI) throw new Error("YA Doinked");
 
 const app = express();
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 5002;
 
 app.use(cors());
 app.use(express.json());

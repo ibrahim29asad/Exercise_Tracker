@@ -3,6 +3,31 @@ let Exercise = require('../modals/excercise.modal');
 
 const { body, param, validationResult } = require('express-validator');
 
+
+// Centralized error handling middleware
+const handleErrors = (err, req, res, next) => {
+  console.error(err.stack);
+  
+  if (err.name === 'ValidationError') {
+    return res.status(400).json({ 
+      error: 'Validation Error',
+      details: err.message 
+    });
+  }
+  
+  if (err.name === 'CastError') {
+    return res.status(400).json({ 
+      error: 'Invalid ID format' 
+    });
+  }
+  
+  // Default error handling
+  res.status(500).json({ 
+    error: 'Something went wrong on the server' 
+  });
+};
+
+// validation MiddleWear
 const validate = (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -10,6 +35,11 @@ const validate = (req, res, next) => {
   }
   next();
 };
+
+const asyncHandler = (fn) => (req, res, next) => {
+  Promise.resolve(fn(req, res, next)).catch(next);
+};
+
 
 const exerciseValidationRules = [
   body('username')
@@ -38,12 +68,17 @@ const idValidationRule = [
 
 
 
-router.route('/').get((req, res) => {
-    // Mongoose Method
-    Exercise.find() 
-        .then(exercises => res.json(exercises),)
-        .catch(err => res.status(400).json('Error: '+ err));
-});
+// router.route('/').get((req, res) => {
+//     // Mongoose Method
+//     Exercise.find() 
+//         .then(exercises => res.json(exercises),)
+//         .catch(err => res.status(400).json('Error: '+ err));
+// });
+
+router.route('/').get(asyncHandler(async (req, res) => {
+  const exercises = await Exercise.find();
+  res.json(exercises);
+}));
 
 router.route('/add').post(
     exerciseValidationRules, // validation rules
@@ -56,9 +91,7 @@ router.route('/add').post(
     const date = Date.parse(req.body.date);
     // Created the Object
     const NewExercise = new Exercise ({ username, description, duration, date});
-    NewExercise.save().then(() => res.json('Exercise Logged In'));
-    return res.status(400).json({ errors: errors.array() });
-            
+    NewExercise.save().then(() => res.json('Exercise Logged In'));       
 
 });
 
@@ -93,5 +126,5 @@ router.route('/update/:id').post((req, res) => {
 // Add Select Update Patch for PostgreSQL 
 
 
-
+router.use(handleErrors);
 module.exports = router;
